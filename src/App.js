@@ -49,7 +49,7 @@ class App extends Component {
         book.bookName = event.target.value;
         const books = [...this.state.Books];
       books[index] = book;
-        this.setState({books: books});
+        this.setState({Books: books});
     }
     // constructor() {
     //     super();
