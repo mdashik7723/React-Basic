@@ -30,6 +30,7 @@ class App extends Component {
             { id: 2, bookName: "Pakisthan", Writer: "1947"},
             { id: 3, bookName: "India", Writer: "1947"}
         ],
+        showBooks: true
     }
 
     // changeBookState =(newBookName) =>{
@@ -46,9 +47,12 @@ class App extends Component {
         const book = {
             ...this.state.Books[index]
         }
+
         book.bookName = event.target.value;
         const books = [...this.state.Books];
-      books[index] = book;
+
+         books[index] = book;
+
         this.setState({Books: books});
     }
     // constructor() {
@@ -66,6 +70,9 @@ class App extends Component {
 
     };
 
+    toggleBooks = () => {
+   this.setState ({ showBooks: !this.state.showBooks});
+    }
 
     render() {
         const style = {
@@ -77,22 +84,28 @@ class App extends Component {
 
         // const booksState = this.state.Books;
 
-        const books = this.state.Books.map((book, index) => {
-            return(
-                <Book
-                bookName = {book.bookName}
-                Writer = {book.Writer}
-                delete = {() => this.deleteBookState(index)}
-                key={book.id}
-                inputName = {(event) => this.changeWithInputState(event, index)}
 
-                />
-            );
-        });
+        let books = null;
+        if (this.state.showBooks){
+             books = this.state.Books.map((book, index) => {
+                return(
+                    <Book
+                        bookName = {book.bookName}
+                        Writer = {book.Writer}
+                        delete = {() => this.deleteBookState(index)}
+                        key={book.id}
+                        inputName = {(event) => this.changeWithInputState(event, index)}
+
+                    />
+                );
+            });
+
+        }
 
         return (
             <div className= "App">
                 <h1 style={style}>Book List</h1>
+                <button onClick={this.toggleBooks}>ToggleBooks</button>
                 {books}
             </div>
         );
