@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import Book from './representational/Book';
 import bookList from '../assets/books.js';
+import NewBook from "./representational/NewBook";
 
 class MainComponent extends Component {
 
@@ -31,11 +32,6 @@ class MainComponent extends Component {
 
         this.setState({Books: books});
     }
-    // constructor() {
-    //     super();
-    //     this.state = {}
-    // }
-
 
     deleteBookState = index => {
         const books = this.state.Books;
@@ -80,9 +76,16 @@ class MainComponent extends Component {
 
         return (
             <div className= "App">
+                <div className="nav-bar">
+                    <ul>
+                        <li><a href="/">Home</a> </li>
+                        <li> <a href="/new">New Book </a> </li>
+                    </ul>
+                </div>
                 <h1 style={style}>Book List</h1>
                 <button onClick={this.toggleBooks}>ToggleBooks</button>
                 {books}
+                <NewBook/>
             </div>
         );
 
