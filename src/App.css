@@ -16,3 +16,13 @@
   color: black;
 
 }
+
+
+.nav-bar a:hover, a:active, a.active {
+  color: orange;
+}
+
+.Book:hover{
+  color: orange;
+  cursor: pointer;
+}

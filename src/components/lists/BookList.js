@@ -1,5 +1,6 @@
 import React from 'react';
 import Book from '../representational/Book';
+import { withRouter } from "react-router-dom";
 
 const BookList = (props) => {
     return (
@@ -8,13 +9,11 @@ const BookList = (props) => {
                 <Book
                     bookName = {book.bookName}
                     Writer = {book.Writer}
-                    delete = {() => this.deleteBookState(index)}
                     key={book.id}
-                    inputName = {(event) => this.changeWithInputState(event, index)}
 
                 />
             );
         })
 );
 }
- export default BookList;
+ export default withRouter(BookList);
