@@ -1,14 +1,14 @@
 import React from "react"
 import '../../Stylesheet/Book.css';
-import { withRouter } from "react-router";
+import { Router } from 'react-router';
 
-const Book = props =>{
+const Book = props => {
     return (
-        <div className= "Book" onClick={props.selectedBookHandler}>
+        <div className="Book" onClick={props.selectedBookHandler}>
             <h1> Book Name: {props.bookName}</h1>
             <h2> Writer: {props.Writer}</h2>
         </div>
     )
 }
 
-    export default Book;
+export default Book;
