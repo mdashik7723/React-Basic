@@ -4,19 +4,31 @@ import bookList from '../assets/books.js';
 import NewBook from "./representational/NewBook";
 import { Route, NavLink } from "react-router-dom";
 import BookList from "./lists/BookList";
+import BookDetail from "./representational/BookDetail";
 import book from "./representational/Book";
 
 class MainComponent extends Component {
 
     state = {
-        Books: bookList
+        Books: bookList,
+        selectedBook: null
     }
-
+selectedBookHandler = bookId => {
+        const book = this.state.books.filter(
+            bookId===book
+        ) [0];
+        this.setState({
+selectedBook: book
+            }
+        )
+}
 
     render() {
 
      const Books = <BookList
-         books = {this.state.Books}></BookList>
+         books = {this.state.Books}>
+         selectedBookHandler={this.state.selectedBookHandler}
+     </BookList>
         return (
             <div className= "App">
                 <nav className="nav-bar">
@@ -27,6 +39,7 @@ class MainComponent extends Component {
                 </nav>
                 <Route path="/" exact render={() => Books}/>
                 <Route path="/new-book" exact component={NewBook}/>
+                <BookDetail book={this.state.selectedBook}/>
             </div>
         );
 

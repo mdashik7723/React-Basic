@@ -10,10 +10,11 @@ const BookList = (props) => {
                     bookName = {book.bookName}
                     Writer = {book.Writer}
                     key={book.id}
+                    selectedBookHandler={()=>this.state.selectedBookHandler(book)}
 
                 />
             );
         })
 );
 }
- export default withRouter(BookList);
+ export default BookList;
