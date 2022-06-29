@@ -1,6 +1,6 @@
 import React from "react"
 import '../../Stylesheet/Book.css';
-import { Router } from 'react-router';
+import {Router} from 'react-router';
 
 const Book = props => {
     return (

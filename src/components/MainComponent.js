@@ -36,7 +36,7 @@ class MainComponent extends Component {
                 <Route path="/" exact render={() => Books}/>
                 <Route path="/new-book" exact component={NewBook}/>
                 <Route path="/book/:id" render={() => <BookDetail book={this.state.selectedBook}/>}/>
-                <Redirect from="/" to = "/book" />
+                <Redirect from="/" to="/book"/>
             </Switch>
         </div>);
 
